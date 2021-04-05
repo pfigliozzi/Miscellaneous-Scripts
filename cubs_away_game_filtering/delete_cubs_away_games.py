@@ -19,7 +19,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
 # The name of the calendar that contains the events you want to delete.
-CALENDAR_NAME = 'Chicago Cubs'
+CALENDAR_NAME = 'Chicago Cubs Schedule'
 
 # Every Cubs home game begins with this string. Used to find events to delete.
 EVENT_FILTER_STRING = '⚾️ Chicago Cubs'
