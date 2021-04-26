@@ -59,11 +59,17 @@ def main():
     calendar_id = filtered_calendars['id']
    
     # Delete all events from the calendar the start with EVENT_FILTER_STRING
-    events_result = service.events().list(calendarId=calendar_id).execute()
-    events_to_delete =[event for event in events_result['items'] if event['summary'].startswith(EVENT_FILTER_STRING)]
-    for event in events_to_delete:
-        service.events().delete(calendarId=calendar_id, eventId=event['id']).execute()
-        print('Deleted {} on {}'.format(event['summary'], event['start']['dateTime']))
+    events = service.events()
+    events_request = events.list(calendarId=calendar_id)
+    while events_request is not None:
+        events_result = events_request.execute()
+
+        events_to_delete =[event for event in events_result['items'] if event['summary'].startswith(EVENT_FILTER_STRING)]
+        for event in events_to_delete:
+            service.events().delete(calendarId=calendar_id, eventId=event['id']).execute()
+            print('Deleted {} on {}'.format(event['summary'], event['start']['dateTime']))
+
+        events_request = events.list_next(events_request, events_result)
 
 if __name__ == '__main__':
     main()
