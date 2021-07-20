@@ -4,5 +4,10 @@ RUN pip install google-api-python-client \
     google-auth-httplib2 \
     google-auth-oauthlib
 
-COPY token.pickle ~/
-COPY credentials.json ~/
+COPY token.pickle /home/
+COPY credentials.json /home/
+COPY delete_cubs_away_games.py /home/
+
+WORKDIR /home
+
+CMD python delete_cubs_away_games.py
