@@ -1,0 +1,6 @@
+# Cubs Away Game Filtering
+
+I live quite close to Wrigley Field in Chicago. Cubs home games are (obviously) a huge draw of people into the city and into my neighborhood that affects parking and traffic, so I like to keep a schedule of Cubs home games in my calendar. The [MLB publishes the schedule online](https://www.mlb.com/cubs/schedule/2021-08) but it includes both the home games and the away games which I add to my Google calendar. Since I am not an avid baseball watcher I only really care about the home games because of the aforementioned reasons. One would think that I can go through and delete the away games but because the calendar is still linked to their calendar, everytime they make a schedule change then Google calendar will re-sync and download _all_ events from the source (including the away games I deleted). Meanwhile, I still want to get shedule updates incase home games get rescheduled. In my experience, the MLB updates the schedule maybe once per day.
+
+So the way I decided to solve this problem is I would use Python to access my Google calendar and delete the away games. Since the MLB can still update the schedule (which undoes my deletions) I thought I can run my process regularly on a schedule so that I can continue to get schedule updates while keeping the away games off my calendar.
+
