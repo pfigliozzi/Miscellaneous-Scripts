@@ -14,7 +14,6 @@ The environment to run this script is pretty simple, all you need is Python and 
 
 ```
   pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
-
 ```
 
 ## Google Authentication:
